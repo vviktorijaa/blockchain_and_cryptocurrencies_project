@@ -1,0 +1,102 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis-v1@latest/dist/moralis.js"></script>
+    <script src="getTransactions.js"></script>
+</head>
+<body>
+<div class="container-fluid mt-5 text-center">
+    <div class="row text-center">
+        <div class="col">
+            <h1>Blockchain and Cryptocurrencies</h1>
+        </div>
+    </div>
+
+    <div class="row text-center mt-5">
+        <div class="col-3"></div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <div class="input-group mr-1 w-50">
+                    <select class="custom-select" id="chain">
+                        <option selected>Choose chain</option>
+                        <option value="0x1">ETH_MAINNET</option>
+                        <option value="0x3">ETH_ROPSTEN</option>
+                        <option value="0x5">ETH_GOERLI</option>
+                        <option value="0x2a">ETH_KOVAN</option>
+                        <option value="0x4">ETH_RINKEBY</option>
+                        <option value="0x539">ETH_LOCALDEVCHAIN</option>
+                        <option value="0x89">POLYGON_MAINNET</option>
+                        <option value="0x13881">POLYGON_MUMBAI</option>
+                        <option value="0x38">BSC_MAINNET</option>
+                        <option value="0x61">BSC_TESTNET</option>
+                        <option value="0xa86a">AVAX_MAINNET</option>
+                        <option value="0xa869">AVAX_TESTNET</option>
+                        <option value="0xfa">FANTOM_MAINNET</option>
+                        <option value="0x19">CRONOS_MAINNET</option>
+                        <option value="0x152">CRONOS_TESTNET</option>
+                    </select>
+                </div>
+                <input id="address" type="text" class="form-control" placeholder="Input address" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+
+    <div class="row m-3">
+        <div class="col">
+            <div class="btn-group">
+                <button style="height: 38px;" class="btn btn-primary mr-2" onclick="getTransactions()">Get transactions</button>
+                <button style="height: 38px;" class="btn btn-primary mr-2" onclick="nativeBalance()">Get native balance</button>
+                <button style="height: 38px;" class="btn btn-primary mr-2" onclick="getTokenBalance()">Get token balances</button>
+                <button style="height: 38px;" class="btn btn-primary mr-2" onclick="tokenTransfers()">Get token transfers</button>
+                <button style="height: 38px;" class="btn btn-primary mr-2" onclick="getNfts()">Get NFTs</button>
+                <button style="height: 38px;" class="btn btn-primary mr-2" onclick="nftTransfers()">Get NFT transfers</button>
+                <button style="height: 38px;" class="btn btn-primary" onclick="nftsForContract()">Get NFTs for contract</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="gettingDataContainer" style="visibility: hidden">
+        <div class="col">
+            <ul class="list-inline">
+                <li class="list-inline-item" id="gettingData"></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row" id="addressTransactions" style="visibility: hidden">
+        <div class="col">
+            <ul class="list-inline">
+                <li class="list-inline-item"><b>Address:</b></li>
+                <li class="list-inline-item" id="addressValue"></li>
+            </ul>
+            <ul class="list-inline">
+                <li class="list-inline-item"><b>Chain:</b></li>
+                <li class="list-inline-item" id="chainValue"></li>
+            </ul>
+            <ul class="list-inline">
+                <li class="list-inline-item"><b>Total transactions:</b></li>
+                <li class="list-inline-item" id="totalTransactions"></li>
+            </ul>
+            <ul class="list-inline">
+                <li class="list-inline-item"><b>Choose transaction:</b></li>
+                <input type="text" class="list-inline-item" id="transactionId">
+                <button class="list-inline-item btn btn-success" onclick="getSpecificTransaction()">Get info</button>
+            </ul>
+        </div>
+    </div>
+    <div class="row" id="specificTransactionInfo" style="visibility: hidden">
+        <div class="col">
+            <ul class="list-inline">
+                <li class="list-inline-item"><b>Hash:</b></li>
+                <input type="text" class="list-inline-item" id="hash">
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
