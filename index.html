@@ -8,6 +8,7 @@
     <script src="https://unpkg.com/moralis-v1@latest/dist/moralis.js"></script>
     <script src="index.js"></script>
     <script src="coinGeckoApi.js"></script>
+    <script src="metamask.js"></script>
     <title>Blockchain and Cryptocurrencies</title>
 </head>
 <body>
@@ -57,7 +58,6 @@
                 <button style="height: 38px;" class="btn btn-primary mr-2" onclick="getTokenTransfers()">Get token transfers</button>
                 <button style="height: 38px;" class="btn btn-primary mr-2" onclick="getNfts()">Get NFTs</button>
                 <button style="height: 38px;" class="btn btn-primary mr-2" onclick="getNftTransfers()">Get NFT transfers</button>
-                <button style="height: 38px;" class="btn btn-primary" onclick="getNftsForContract()">Get NFTs for contract</button>
             </div>
         </div>
     </div>
@@ -79,6 +79,20 @@
         <div class="col">
             <h4>See Cryptocurrency Prices, Charts, and Crypto Market information</h4>
             <a href="coinGeckoInfo.html" class="btn btn-success mt-3">Get CoinGecko information</a>
+        </div>
+    </div>
+
+    <div class="row mt-4 mb-5">
+        <div class="col">
+            <h6>or</h6>
+        </div>
+    </div>
+
+    <div class="row mt-5 mb-5">
+        <div class="col">
+            <h4>Connect with MetaMask</h4>
+            <a class="btn btn-danger mt-3 text-white" id="metamaskButton" onclick="connect()">Connect</a>
+            <h6 id="walletID" class="mt-4">Your wallet is not connected yet</h6>
         </div>
     </div>
 </div>
