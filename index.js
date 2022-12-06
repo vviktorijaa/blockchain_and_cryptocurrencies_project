@@ -107,7 +107,6 @@ async function getTokenBalance() {
 
     setTimeout(async function () {
         const balances = await Moralis.Web3API.account.getTokenBalances(options);
-        console.log(balances)
 
         document.getElementById('displayContainer').style.visibility = 'visible';
 
@@ -217,7 +216,7 @@ async function getNftTransfers() {
 
         generateFirstTwoRowsTable(dynamicContent, address, chain)
 
-        document.getElementById('label').innerHTML = "NFTs";
+        document.getElementById('label').innerHTML = "NFT Transfers";
 
         let object = nftTransfers.result[0];
         generateRowsWithInfo(object, dynamicContent);

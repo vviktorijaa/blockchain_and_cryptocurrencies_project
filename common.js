@@ -1,7 +1,7 @@
 function generateTableSkeleton() {
     let table = document.createElement("table");
     table.setAttribute("class", "table table-borderless table-striped mb-5");
-    table.setAttribute("style", "width: 40%; margin: auto");
+    table.setAttribute("style", "width:40%; margin: auto");
 
     let tableHeader = document.createElement("thead");
     let trHead = document.createElement("tr");
@@ -124,7 +124,5 @@ function generateRowsWithInfo(object, dynamicContent) {
 
             dynamicContent.appendChild(tableRow);
         }
-
-        console.log(`${property}: ${object[property]}`);
     }
 }
