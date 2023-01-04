@@ -1,3 +1,8 @@
+function initializeTable() {
+    cleanTable();
+    generateTableSkeleton();
+}
+
 function generateTableSkeleton() {
     let table = document.createElement("table");
     table.setAttribute("class", "table table-borderless table-striped mb-5");
